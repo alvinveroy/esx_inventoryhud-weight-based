@@ -32,7 +32,7 @@ AddEventHandler("esx_inventoryhud:tradePlayerItem", function(from, target, type,
 			local targetItem = targetXPlayer.getInventoryItem(itemName)
 
 			if itemCount > 0 and sourceItem.count >= itemCount then
-				if targetItem.limit == -1 or xPlayer.canCarryItem then
+				if targetItem.limit == -1 or targetXPlayer.canCarryItem(itemName, itemCount) then
 				else
 					sourceXPlayer.removeInventoryItem(itemName, itemCount)
 					targetXPlayer.addInventoryItem(itemName, itemCount)
@@ -314,7 +314,7 @@ AddEventHandler("suku:SellItemToPlayer",function(source, type, item, count)
 
     if type == "item_standard" then
         local targetItem = xPlayer.getInventoryItem(item)
-        if targetItem.limit == -1 or xPlayer.canCarryItem then
+        if targetItem.limit == -1 or xPlayer.canCarryItem(item, count) then
             local list = itemShopList
             for i = 1, #list, 1 do
 				if list[i].name == item then
