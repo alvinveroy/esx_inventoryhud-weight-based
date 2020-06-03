@@ -4,7 +4,7 @@ Config.IncludeCash = true -- Include cash in inventory?
 Config.IncludeWeapons = true -- Include weapons in inventory?
 Config.IncludeAccounts = true -- Include accounts (bank, black money, ...)?
 Config.ExcludeAccountsList = {"bank"} -- List of accounts names to exclude from inventory
-Config.OpenControl = 289 -- Key for opening inventory. Edit html/js/config.js to change key for closing it.
+Config.OpenControl = 182 -- Key for opening inventory. Edit html/js/config.js to change key for closing it.
 
 -- List of item names that will close ui when used
 Config.CloseUiItems = {"headbag", "fishingrod", "tunerlaptop", "binoculars", "gps", "joint", "cigarette", "cigar", "fixkit", "rollingpaper", "cocaine", "meth"}
@@ -145,7 +145,7 @@ Config.Limit = 25000
 -- weight == 0 : The item do not affect character inventory weight
 -- weight > 0 : The item cost place on inventory
 -- weight < 0 : The item add place on inventory. Smart people will love it.
-Config.DefaultWeight = 10
+Config.DefaultWeight = 1
 
 Config.localWeight = {
 	AED = 100,
