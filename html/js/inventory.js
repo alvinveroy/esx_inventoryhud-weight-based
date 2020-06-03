@@ -92,7 +92,7 @@ window.addEventListener("message", function (event) {
         $(".nearbyPlayerButton").click(function () {
             $("#dialog").dialog("close");
             player = $(this).data("player");
-            $.post("http://esx_inventoryhud/GiveItem", JSON.stringify({
+            $.post("http://esx_inventoryhud-weight-based/GiveItem", JSON.stringify({
                 player: player,
                 item: event.data.item,
                 number: parseInt($("#count").val())
@@ -102,7 +102,7 @@ window.addEventListener("message", function (event) {
 });
 
 function closeInventory() {
-    $.post("http://esx_inventoryhud/NUIFocusOff", JSON.stringify({}));
+    $.post("http://esx_inventoryhud-weight-based/NUIFocusOff", JSON.stringify({}));
 }
 
 function inventorySetup(items,fastItems) {
@@ -139,7 +139,7 @@ function makeDraggables(){
 
             if (type === "normal" && (itemInventory === "main" || itemInventory === "fast") && itemData.type === "item_weapon") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/PutIntoFast", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/PutIntoFast", JSON.stringify({
                     item: itemData,
                     slot : 1
                 }));
@@ -153,7 +153,7 @@ function makeDraggables(){
 
             if (type === "normal" && (itemInventory === "main" || itemInventory === "fast") && itemData.type === "item_weapon") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/PutIntoFast", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/PutIntoFast", JSON.stringify({
                     item: itemData,
                     slot : 2
                 }));
@@ -167,7 +167,7 @@ function makeDraggables(){
 
             if (type === "normal" && (itemInventory === "main" || itemInventory === "fast") && itemData.type === "item_weapon") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/PutIntoFast", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/PutIntoFast", JSON.stringify({
                     item: itemData,
                     slot : 3
                 }));
@@ -181,7 +181,7 @@ function makeDraggables(){
 
             if (type === "normal" && (itemInventory === "main" || itemInventory === "fast") && itemData.type === "item_weapon") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/PutIntoFast", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/PutIntoFast", JSON.stringify({
                     item: itemData,
                     slot : 4
                 }));
@@ -195,7 +195,7 @@ function makeDraggables(){
 
             if (type === "normal" && (itemInventory === "main" || itemInventory === "fast") && itemData.type === "item_weapon") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/PutIntoFast", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/PutIntoFast", JSON.stringify({
                     item: itemData,
                     slot : 5
                 }));
@@ -354,7 +354,7 @@ $(document).ready(function () {
 
             if (itemData.usable) {
                 disableInventory(300);
-                $.post("http://esx_inventoryhud/UseItem", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/UseItem", JSON.stringify({
                     item: itemData
                 }));
             }
@@ -378,7 +378,7 @@ $(document).ready(function () {
 
             if (itemData.canRemove) {
                 disableInventory(300);
-                $.post("http://esx_inventoryhud/GetNearPlayers", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/GetNearPlayers", JSON.stringify({
                     item: itemData
                 }));
             }
@@ -402,7 +402,7 @@ $(document).ready(function () {
 
             if (itemData.canRemove) {
                 disableInventory(300);
-                $.post("http://esx_inventoryhud/DropItem", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/DropItem", JSON.stringify({
                     item: itemData,
                     number: parseInt($("#count").val())
                 }));
@@ -417,43 +417,43 @@ $(document).ready(function () {
 
             if (type === "trunk" && itemInventory === "second") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/TakeFromTrunk", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/TakeFromTrunk", JSON.stringify({
                     item: itemData,
                     number: parseInt($("#count").val())
                 }));
             } else if (type === "property" && itemInventory === "second") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/TakeFromProperty", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/TakeFromProperty", JSON.stringify({
                     item: itemData,
                     number: parseInt($("#count").val()),
 					owner : ownerHouse
                 }));
             } else if (type === "player" && itemInventory === "second") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/TakeFromPlayer", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/TakeFromPlayer", JSON.stringify({
                     item: itemData,
                     number: parseInt($("#count").val())
                 }));
             }else if (type === "normal" && itemInventory === "fast") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/TakeFromFast", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/TakeFromFast", JSON.stringify({
                     item: itemData
                 }));
             } else if (type === "glovebox" && itemInventory === "second") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/TakeFromGlovebox", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/TakeFromGlovebox", JSON.stringify({
                     item: itemData,
                     number: parseInt($("#count").val())
                 })); 
             } else if (type === "shop" && itemInventory === "second") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/TakeFromShop", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/TakeFromShop", JSON.stringify({
                     item: itemData,
                     number: parseInt($("#count").val())
                 }));
             } else if (type === "disc-property" && itemInventory === "second") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/TakeFromDiscProperty", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/TakeFromDiscProperty", JSON.stringify({
                     item: itemData,
                     number: parseInt($("#count").val())
                 }));
@@ -469,32 +469,32 @@ $(document).ready(function () {
 
             if (type === "trunk" && itemInventory === "main") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/PutIntoTrunk", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/PutIntoTrunk", JSON.stringify({
                     item: itemData,
                     number: parseInt($("#count").val())
                 }));
             } else if (type === "property" && itemInventory === "main") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/PutIntoProperty", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/PutIntoProperty", JSON.stringify({
                     item: itemData,
                     number: parseInt($("#count").val()),
 					owner : ownerHouse
                 }));
             } else if (type === "glovebox" && itemInventory === "main") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/PutIntoGlovebox", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/PutIntoGlovebox", JSON.stringify({
                     item: itemData,
                     number: parseInt($("#count").val())
                 }));
             } else if (type === "disc-property" && itemInventory === "main") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/PutIntoDiscProperty", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/PutIntoDiscProperty", JSON.stringify({
                     item: itemData,
                     number: parseInt($("#count").val())
                 }));
             } else if (type === "player" && itemInventory === "main") {
                 disableInventory(500);
-                $.post("http://esx_inventoryhud/PutIntoPlayer", JSON.stringify({
+                $.post("http://esx_inventoryhud-weight-based/PutIntoPlayer", JSON.stringify({
                     item: itemData,
                     number: parseInt($("#count").val())
                 }));
